@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+}
+
+#sidebar {
+  width: 200px;
+  background: #eee;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
+}
+
+#sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* memory map area placeholder */
+#memory-map {
+  height: 80vh;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  position: relative;
+  overflow: hidden;
+}
+
+/* floating food labels later */
+.food-label {
+  position: absolute;
+  font-weight: bold;
+}

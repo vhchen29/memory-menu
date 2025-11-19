@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="container">
+
+    <!-- LEFT SIDEBAR -->
+    <nav id="sidebar">
+      <h2>Menu</h2>
+      <button onclick="showPage('memory')">Memory Map</button>
+      <button onclick="showPage('input')">Add Food</button>
+      <button onclick="showPage('print')">Print</button>
+    </nav>
+
+    <!-- RIGHT SIDE - PAGE AREA -->
+    <main id="content">
+
+      <!-- PAGE 1: MEMORY MAP -->
+      <section id="page-memory" class="page">
+        <h1>Memory Map</h1>
+        <div id="memory-map"></div>
+      </section>
+
+      <!-- PAGE 2: USER INPUT -->
+      <section id="page-input" class="page" style="display:none;">
+        <h1>Add a Food Memory</h1>
+        <form id="foodForm">
+          <input type="text" id="foodInput" placeholder="Type a food..." required>
+          <button type="submit">Add</button>
+        </form>
+      </section>
+
+      <!-- PAGE 3: PRINT -->
+      <section id="page-print" class="page" style="display:none;">
+        <h1>Print Your Memory Menu</h1>
+        <button onclick="window.print()">Print This Page</button>
+        <p>This will print the Memory Map page content.</p>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
