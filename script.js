@@ -10,6 +10,8 @@ function showPage(pageName) {
 const foodForm = document.getElementById('foodForm');
 const memoryMap = document.getElementById('memory-map');
 
+sampleMemories.forEach(m => addFoodLabel(m));
+
 foodForm?.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -27,6 +29,8 @@ foodForm?.addEventListener('submit', (e) => {
 
 
 function addFoodLabel(memory) {
+  console.log("addFoodLabel CALLED with:", memory);
+
   const label = document.createElement('div');
   label.className = 'food-label';
   label.textContent = memory.food;
@@ -59,28 +63,44 @@ function showTooltip(e) {
   const label = e.target;
   const rect = label.getBoundingClientRect();
 
-  tooltip.innerHTML = "HELLO";  // basic test
+  // tooltip.innerHTML = "HELLO";  // basic test
 
-  tooltip.style.left = rect.right + 10 + 'px';
-  tooltip.style.top = rect.top + 'px';
-  tooltip.style.display = 'block';
+  
   // const label = e.target;
 
-  // tooltip.innerHTML = `
-  //   <div style="font-size:1.1rem; font-weight:bold; margin-bottom:6px;">
-  //   ${label.dataset.food}
-  //   </div>
-  //   <div><strong>Date:</strong> ${label.dataset.date}</div>
-  //   <div><strong>People:</strong> ${label.dataset.people}</div>
-  //   <div><strong>Location:</strong> ${label.dataset.location}</div>
-  //   <div style="margin-top:8px;">${label.dataset.blurb}</div>
-  // `;
+  tooltip.innerHTML = `
+    <div style="font-size:1.1rem; font-weight:bold; margin-bottom:6px;">
+    ${label.dataset.food}
+    </div>
+    <div><strong>When?</strong> ${label.dataset.date}</div>
+    <div><strong>People:</strong> ${label.dataset.people}</div>
+    <div><strong>Where:</strong> ${label.dataset.location}</div>
+    <div style="margin-top:8px;">${label.dataset.blurb}</div>
+  `;
 
   // tooltip.style.left = (label.offsetLeft + 30) + 'px';
   // tooltip.style.top = (label.offsetTop + 30) + 'px';
   // tooltip.style.display = 'block';
+
+  tooltip.style.left = rect.right + 10 + 'px';
+  tooltip.style.top = rect.top + 'px';
+  tooltip.style.display = 'block';
 }
 
 function hideTooltip() {
   tooltip.style.display = 'none';
 }
+
+const label = document.createElement('div');
+/**
+ *  label.dataset.food = memory.food;
+  label.dataset.date = memory.date;
+  label.dataset.people = memory.people;
+  label.dataset.location = memory.location;
+  label.dataset.blurb = memory.blurb;
+ */
+
+
+// window.addEventListener("DOMContentLoaded", (e) => {
+  
+// });

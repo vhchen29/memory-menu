@@ -34,7 +34,7 @@ body {
   background: #f8f8f8;
   border: 1px solid #ddd;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* floating food labels later */
