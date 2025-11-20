@@ -7,14 +7,14 @@ const sampleMemories = [
     blurb: "Barbara was a blast! We drove to Y Bento, and then ate at Ewing House."
   },
   {
-    food: "Sichuan Boiled Fish",
+    food: "sichuan boiled fish",
     date: "2021-11-02",
     people: 10,
     location: "Chengdu Taste",
     blurb: "The first dinner! The waiter ignored my plan and essentially ordered a full table of food for us."
   },
   {
-    food: "Chicken Curry Soup",
+    food: "chicken curry soup",
     date: "2022-08-09",
     people: 5,
     location: "Gourmet house",
