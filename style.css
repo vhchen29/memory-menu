@@ -42,3 +42,35 @@ body {
   position: absolute;
   font-weight: bold;
 }
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+#tooltip {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  border-radius: 6px;
+  max-width: 200px;
+  pointer-events: none;
+  z-index: 999;
+  font-size: 0.85rem;
+}
+
+.food-label:hover {
+  cursor: pointer;
+  color: #d44; /* optional highlight */
+}

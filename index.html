@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+  <div id="tooltip" style="display:none;"></div>
   <div id="container">
 
     <!-- LEFT SIDEBAR -->
@@ -30,7 +30,26 @@
       <section id="page-input" class="page" style="display:none;">
         <h1>Add a Food Memory</h1>
         <form id="foodForm">
+          <!-- FOOD NAME -->
+          <label>Food:</label>
           <input type="text" id="foodInput" placeholder="Type a food..." required>
+
+          <!-- DATE -->
+          <label>Date of memory:</label>
+          <input type="date" id="foodDate" required>
+
+          <!-- NUMBER OF PEOPLE -->
+          <label>Number of people:</label>
+          <input type="number" id="foodPeople" min="1" placeholder="e.g. 4" required>
+
+          <!-- LOCATION -->
+          <label>Location:</label>
+          <input type="text" id="foodLocation" placeholder="Where did it happen?" required>
+
+          <!-- BLURB -->
+          <label>Short blurb:</label>
+          <textarea id="foodBlurb" placeholder="Write a short memory..." rows="4" required></textarea>
+
           <button type="submit">Add</button>
         </form>
       </section>
