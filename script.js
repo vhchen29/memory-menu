@@ -6,9 +6,11 @@ function showPage(pageName) {
 }
 
 // --- Adding Foods to the Memory Map ---
-
+// const label = document.createElement('div');
 const foodForm = document.getElementById('foodForm');
 const memoryMap = document.getElementById('memory-map');
+const dictForm = document.getElementById("dictForm");
+const dictionary = {};
 
 sampleMemories.forEach(m => addFoodLabel(m));
 
@@ -70,7 +72,7 @@ function showTooltip(e) {
 
   tooltip.innerHTML = `
     <div style="font-size:1.1rem; font-weight:bold; margin-bottom:6px;">
-    ${label.dataset.food}
+   ${label.dataset.foodChinese || label.dataset.food}
     </div>
     <div><strong>When?</strong> ${label.dataset.date}</div>
     <div><strong>People:</strong> ${label.dataset.people}</div>
@@ -78,29 +80,69 @@ function showTooltip(e) {
     <div style="margin-top:8px;">${label.dataset.blurb}</div>
   `;
 
-  // tooltip.style.left = (label.offsetLeft + 30) + 'px';
-  // tooltip.style.top = (label.offsetTop + 30) + 'px';
-  // tooltip.style.display = 'block';
-
   tooltip.style.left = rect.right + 10 + 'px';
   tooltip.style.top = rect.top + 'px';
   tooltip.style.display = 'block';
+
+    updateLabelsWithDictionary();
+
 }
 
 function hideTooltip() {
   tooltip.style.display = 'none';
 }
 
-const label = document.createElement('div');
-/**
- *  label.dataset.food = memory.food;
-  label.dataset.date = memory.date;
-  label.dataset.people = memory.people;
-  label.dataset.location = memory.location;
-  label.dataset.blurb = memory.blurb;
- */
+function isChinese(text) {
+  return /^[\u4e00-\u9fff]+$/.test(text);
+}
 
 
-// window.addEventListener("DOMContentLoaded", (e) => {
+dictForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const chinese = document.getElementById("dictChinese").value.trim();
+  const english = document.getElementById("dictEnglish").value.trim().toLowerCase();
+
+  if (!isChinese(chinese)) {
+    alert("Please enter only Chinese characters.");
+    return;
+  }
+
+  dictionary[english] = chinese;
+  updateLabelsWithDictionary();
+  updateDictList();
+
+  dictForm.reset();
+});
+
+
+function updateDictList() {
+  const list = document.getElementById("dictList");
+  list.innerHTML = "";
+
+  for (const english in dictionary) {
+    const chinese = dictionary[english];
+    const li = document.createElement("li"); //list item
+    li.textContent = `${english} → ${chinese}`;
+    list.appendChild(li);
+  }
+}
+
+function updateLabelsWithDictionary() {
+  const original = label.dataset.food;
+    const words = original.split(/\s+/); // split by spaces
+
+    const updatedWords = words.map(w => {
+      const key = w.toLowerCase();
+      return dictionary[key] || w;
+    });
+
+    const updated = updatedWords.join(" ");
+
+    // update visible text
+    label.textContent = updated;
+
+    // update Chinese version for tooltip (optional)
+    label.dataset.foodChinese = updated;
+  }
   
-// });

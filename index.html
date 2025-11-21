@@ -15,6 +15,7 @@
       <button onclick="showPage('memory')">Memory Map</button>
       <button onclick="showPage('input')">Add Food</button>
       <button onclick="showPage('print')">Print</button>
+      <button onclick="showPage('dictionary')">Add to Dictionary</button>
     </nav>
 
     <!-- RIGHT SIDE - PAGE AREA -->
@@ -60,6 +61,23 @@
         <button onclick="window.print()">Print This Page</button>
         <p>This will print the Memory Map page content.</p>
       </section>
+
+      <!-- PAGE 4: ADD TO DICTIONARY -->
+      <section id="page-dictionary" class="page" style="display:none;">
+        <h1>Add to Dictionary</h1>
+        <form id="dictForm">
+          <label>Chinese Word:</label>
+          <input type="text" id="dictChinese" required>
+
+          <label>English Word:</label>
+          <input type="text" id="dictEnglish" required>
+
+          <button type="submit">Add to Dictionary</button>
+        </form>
+          <ul id="dictList"></ul>
+      </section>
+
+
 
     </main>
 
