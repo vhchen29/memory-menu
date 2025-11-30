@@ -41,6 +41,17 @@ body {
 .food-label {
   position: absolute;
   font-weight: bold;
+  transition: left 10s linear, top 10s linear;
+  animation: float var(--float-time) ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(var(--dx), var(--dy));
+  }
 }
 
 form label {
@@ -74,3 +85,4 @@ form textarea {
   cursor: pointer;
   color: #d44; /* optional highlight */
 }
+

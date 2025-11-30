@@ -29,6 +29,35 @@ foodForm?.addEventListener('submit', (e) => {
   foodForm.reset();
 });
 
+function floatLabel(label) {
+  function move() {
+    const box = memoryMap.getBoundingClientRect();
+    const w = label.offsetWidth;
+    const h = label.offsetHeight;
+
+    const currentX = parseFloat(label.style.left) || 100;
+    const currentY = parseFloat(label.style.top) || 100;
+
+    const randX = currentX + (Math.random() * 200 - 100);
+    const randY = currentY + (Math.random() * 200 - 100);
+
+    const x = Math.min(Math.max(randX, 0), box.width - w);
+    const y = Math.min(Math.max(randY, 0), box.height - h);
+
+    // move smoothly
+    label.style.left = x + "px";
+    label.style.top = y + "px";
+
+    // schedule next move in 3–6 sec
+    const delay = Math.random() * 10000;
+    setTimeout(move, delay);
+  }
+
+  move();
+
+}
+
+
 
 function addFoodLabel(memory) {
   console.log("addFoodLabel CALLED with:", memory);
@@ -45,18 +74,22 @@ function addFoodLabel(memory) {
   label.dataset.blurb = memory.blurb;
 
   // randomish position
-  const x = Math.random() * 80 + 10; // %
-  const y = Math.random() * 80 + 10; // %
+   const pxX = (Math.random() * 80 + 10) / 100 * memoryMap.offsetWidth;
+  const pxY = (Math.random() * 80 + 10) / 100 * memoryMap.offsetHeight;
 
-  label.style.left = x + '%';
-  label.style.top = y + '%';
+  label.style.left = pxX + "px";
+  label.style.top = pxY + "px";
 
   memoryMap.appendChild(label);
 
   // add hover behavior
   label.addEventListener('mouseenter', showTooltip);
   label.addEventListener('mouseleave', hideTooltip);
+
+  floatLabel(label);
 }
+
+
 
 const tooltip = document.getElementById('tooltip');
 
@@ -146,3 +179,4 @@ function updateLabelsWithDictionary() {
     label.dataset.foodChinese = updated;
   }
   
+
