@@ -1,6 +1,63 @@
+@font-face {
+  font-family: 'Mincho-Regular';
+  src: url('assets/BIZUDMincho-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Mincho-Bold';
+  src: url('assets/BIZUDMincho-Bold.ttf'); 
+}
+
+@font-face{
+  font-family: 'Adamina';
+  src: url('assets/Adamina-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('assets/Avenir Next.ttf');
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('assets/NotoSansSC-VariableFont_wght.ttf');
+}
+
+:root {
+  --darkGreen: #3A421D;
+  --red: CD3E3E;
+  --teal: #73c1cd;
+  --lightGreen: #a2bb58;
+  --yellow: #ffd470;
+
+  --bg: #ffffff;
+
+}
+
+
 body {
   margin: 0;
   font-family: sans-serif;
+  background: var(--bg);
+  border: 5px solid var(--darkGreen);
+}
+
+h1 {
+  font-family: 'Mincho-Bold', serif;
+  font-size: 56px;
+  color: var(--darkGreen);
+  text-transform: uppercase;
+  margin-top: -10px;
+
+}
+
+h2 {
+  font-family: 'Mincho-Bold', serif;
+  font-size: 56px;
+  color: var(--darkGreen);
+  text-transform: lowercase;
+  margin-top: -10px;
+
 }
 
 #container {
@@ -9,18 +66,72 @@ body {
 }
 
 #sidebar {
-  width: 200px;
-  background: #eee;
-  padding: 20px;
+  width: 360px;
+  background: var(--bg);
+  padding: 0px;
   box-sizing: border-box;
-  border-right: 1px solid #ccc;
+  border-right: 5px solid var(--darkGreen);
+  border-left: 5px;
+  /* margin-top: -5px;
+  margin-left: -5px; */
+
+  display: flex;    
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+#sidebar titleBox {
+  display: block;
+  width: 360px;
+  margin-top: -5px;
+  margin-left: -5px;
+  margin-right: -5px;
+
+  padding: 20px;
+  border: none;         
+  border-radius: 0;     /* sharp corners */
+  background: transparent;
+}
+
+.buttonGroup{
+    margin-top: auto;
+    margin-bottom: -5px;
 }
 
 #sidebar button {
   display: block;
-  width: 100%;
-  margin-bottom: 10px;
+  width: 355px;
+  margin-top: -5px;
+  margin-left: 0px;
+  /* margin-right: -5px; */
+
+  padding: 12px;
+  padding-left: 20px;
+  border-top: 5px solid var(--darkGreen);  
+  border-right: none;
+  border-left: none;     
+  border-bottom: 5px solid var(--darkGreen);
+  border-radius: 0;     /* sharp corners */
+  background: var(--bg);
+  color: var(--darkGreen);
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: lowercase;
+  text-align: left;
+  cursor: pointer;
 }
+
+#sidebar button:hover {
+  background: var(--lightGreen);
+  color: var(--darkGreen);
+}
+
+#sidebar button.active {
+  background: var(--yellow);
+  color: black;
+}
+
 
 #content {
   flex: 1;

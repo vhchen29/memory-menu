@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Memory Menu</title>
+  <title><h2>Memory Menu</h2></title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,11 +11,14 @@
 
     <!-- LEFT SIDEBAR -->
     <nav id="sidebar">
-      <h2>Menu</h2>
-      <button onclick="showPage('memory')">Memory Map</button>
-      <button onclick="showPage('input')">Add Food</button>
-      <button onclick="showPage('print')">Print</button>
-      <button onclick="showPage('dictionary')">Add to Dictionary</button>
+      <titleBox><h1>Menu</h1></titleBox>
+
+      <div class="buttonGroup">
+        <button onclick="showPage('memory')">Memory Map</button>
+        <button onclick="showPage('input')">Add Food</button>
+        <button onclick="showPage('print')">Print</button>
+        <button onclick="showPage('dictionary')">Add to Dictionary</button>
+      </div>
     </nav>
 
     <!-- RIGHT SIDE - PAGE AREA -->
@@ -23,13 +26,13 @@
 
       <!-- PAGE 1: MEMORY MAP -->
       <section id="page-memory" class="page">
-        <h1>Memory Map</h1>
+        <h2>Memory Map</h2>
         <div id="memory-map"></div>
       </section>
 
       <!-- PAGE 2: USER INPUT -->
       <section id="page-input" class="page" style="display:none;">
-        <h1>Add a Food Memory</h1>
+        <h2>Add a Food Memory</h2>
         <form id="foodForm">
           <!-- FOOD NAME -->
           <label>Food:</label>
@@ -57,14 +60,14 @@
 
       <!-- PAGE 3: PRINT -->
       <section id="page-print" class="page" style="display:none;">
-        <h1>Print Your Memory Menu</h1>
+        <h2>Print Your Memory Menu</h2>
         <button onclick="window.print()">Print This Page</button>
         <p>This will print the Memory Map page content.</p>
       </section>
 
       <!-- PAGE 4: ADD TO DICTIONARY -->
       <section id="page-dictionary" class="page" style="display:none;">
-        <h1>Add to Dictionary</h1>
+        <h2>Add to Dictionary</h2>
         <form id="dictForm">
           <label>Chinese Word:</label>
           <input type="text" id="dictChinese" required>
