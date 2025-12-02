@@ -32,11 +32,16 @@ foodForm?.addEventListener('submit', (e) => {
 function floatLabel(label) {
   function move() {
     const box = memoryMap.getBoundingClientRect();
+    const rect = label.getBoundingClientRect();
+
     const w = label.offsetWidth;
     const h = label.offsetHeight;
 
-    const currentX = parseFloat(label.style.left) || 100;
-    const currentY = parseFloat(label.style.top) || 100;
+    const currentX = parseFloat(label.dataset.x);
+    const currentY = parseFloat(label.dataset.y);
+
+    // const currentX = label.style.left - box.left;
+    // const currentY = label.style.top - box.top;
 
     const randX = currentX + (Math.random() * 200 - 100);
     const randY = currentY + (Math.random() * 200 - 100);
@@ -44,9 +49,17 @@ function floatLabel(label) {
     const x = Math.min(Math.max(randX, 0), box.width - w);
     const y = Math.min(Math.max(randY, 0), box.height - h);
 
+    // const x = (Math.random() * 80 + 10) / 100 * memoryMap.offsetWidth;
+    // const y = (Math.random() * 80 + 10) / 100 * memoryMap.offsetHeight;
+
+    
+
     // move smoothly
     label.style.left = x + "px";
     label.style.top = y + "px";
+
+    label.dataset.x = x;
+label.dataset.y = y;
 
     // schedule next move in 3–6 sec
     const delay = Math.random() * 10000;
@@ -76,6 +89,10 @@ function addFoodLabel(memory) {
   // randomish position
    const pxX = (Math.random() * 80 + 10) / 100 * memoryMap.offsetWidth;
   const pxY = (Math.random() * 80 + 10) / 100 * memoryMap.offsetHeight;
+
+  //store position
+  label.dataset.x = pxX;
+  label.dataset.y = pxY;
 
   label.style.left = pxX + "px";
   label.style.top = pxY + "px";
