@@ -1,0 +1,206 @@
+@font-face {
+  font-family: 'Mincho-Regular';
+  src: url('assets/BIZUDMincho-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Mincho-Bold';
+  src: url('assets/BIZUDMincho-Bold.ttf'); 
+}
+
+@font-face{
+  font-family: 'Adamina';
+  src: url('assets/Adamina-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('assets/Avenir Next.ttf');
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('assets/NotoSansSC-VariableFont_wght.ttf');
+}
+
+:root {
+  --darkGreen: #3A421D;
+  --red: #CD3E3E;
+  --teal: #73c1cd;
+  --lightGreen: #a2bb58;
+  --yellow: #ffd470;
+
+  --bg: #ffffff;
+
+}
+
+h2{
+    font-family: 'Mincho-Bold', serif;
+    font-size: 48px;
+    color: var(--darkGreen);
+    text-transform: uppercase;
+    margin-top: -10px;
+}
+
+h3{
+    font-family: 'Avenir Next', sans-serif;
+    font-size: 24px;
+    line-height: 26px;
+    color: var(--darkGreen);
+    text-transform: lowercase;
+    
+}
+
+h3::after {
+  content: "";
+  display: block;
+  border-bottom: 4px dotted var(--darkGreen);
+  margin-top: 6px;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--yellow);
+  /* border: 5px solid var(--darkGreen); */
+}
+
+.topbar {
+  width: 100%;
+  height: 70px;
+  background-color: var(--yellow);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 4px solid var(--darkGreen);
+  z-index: 100;
+}
+.sidebar {
+  width: 220px;
+  padding: 20px;
+  position: fixed;
+  top: 0;          
+  left: 0;
+  bottom: 0;
+  border-right: 4px solid var(--darkGreen);
+  overflow-y: auto;
+  z-index: 101;
+}
+
+#menu-block {
+  margin-top: 70px;  /* pushes below top bar */
+  margin-left: 260px; /* pushes right of sidebar */
+  padding: 20px;
+  background-color: var(--bg);
+}
+
+p{
+    font-family: 'Avenir Next', serif;
+    font-size: 56px;
+    font-weight: bold;
+    text-transform: lowercase;
+    margin: 20px;
+    color: var(--darkGreen);
+}
+
+.bounce {
+  display: inline-block;           /* allows movement */
+  transition: transform 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.bounce:hover {
+  color: var(--red);       /* red accent */
+  transform: translateY(-8px);     /* bounce upward */
+}
+
+.chinese-active {
+    color: var(--red);       /* red accent */
+    font-size: 2.0em;     /* larger */
+    font-weight: bold;
+    font-family: "Noto Sans SC", sans-serif;
+    letter-spacing: 1px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  display: ineline-block;
+}
+
+.icon-active {
+  transform: translateY(-8px);
+}
+
+#wordList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  font-family: bold 'Avenir Next', 'Noto Sans SC', sans-serif;
+  font-size: 20px;
+  color: var(--lightGreen);
+
+}
+
+#wordList li .delete-btn {
+  opacity: 0;                 /* hidden by default */
+  cursor: pointer;
+  color: var(--lightGreen);
+  font-weight: bold;
+  padding: 0 6px;
+  transition: opacity 0.2s ease;
+}
+
+#wordList li:hover .delete-btn {
+  opacity: 1;                 /* only visible on hover */
+}
+
+#wordList li .delete-btn:hover {
+  color: var(--lightGreen);
+}
+
+#englishInput, #chineseInput {
+  width: calc(100% - 24px);  /* full width minus padding */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--darkGreen);
+  border-radius: 0;
+  font-size: 16px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+#englishInput, #chineseInput {
+  width: calc(100% - 24px);  /* full width minus padding */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--darkGreen);
+  border-radius: 0;
+  font-size: 16px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+#englishInput:focus, #chineseInput:focus{
+    outline: none;
+    border-color: var(--lightGreen);
+}
+
+
+
+
+
+#addWordBtn {
+  padding: 10px;
+  background-color: var(--lightGreen);
+  color: var(--darkGreen);
+  border: 2px solid var(--darkGreen);
+  border-radius: 0;
+  font-size: 16px;
+  padding: 5px 10px;
+  font-family: 'Avenir Next', sans-serif;
+  cursor: pointer;
+}
+

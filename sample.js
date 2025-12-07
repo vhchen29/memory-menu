@@ -4,7 +4,7 @@ const sampleMemories = [
     date: "2023-05-17",
     people: 9,
     location: "y bento",
-    blurb: "Barbara was a blast! We drove to Y Bento, and then ate at Ewing House."
+    blurb: "Barbara was a blast! social glue. We drove to Y Bento, and then ate at Ewing House."
   },
   {
     food: "sichuan boiled fish",
@@ -14,11 +14,11 @@ const sampleMemories = [
     blurb: "The first dinner! The waiter ignored my plan and essentially ordered a full table of food for us."
   },
   {
-    food: "chicken curry soup",
+    food: "rice balls in rice wine soup",
     date: "2022-08-09",
     people: 5,
-    location: "Gourmet house",
-    blurb: "Elizabeth's recommendation! The soup was delish. We went to Stock after, what an amazing shop. "
+    location: "manos's house",
+    blurb: "bought tangyuan from good fortune to make for him! "
   }
 ];
 
