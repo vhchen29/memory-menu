@@ -4,6 +4,9 @@ words.set("eggs", "蛋");
 words.set("tomato", "番茄");
 words.set("tomatoes", "番茄");
 words.set("pork", "猪肉");
+words.set("tofu", "豆腐");
+words.set("chicken", "鸡肉");
+words.set("ginger", "姜");
 
 const englishInput = document.getElementById("englishInput");
 const chineseInput = document.getElementById("chineseInput");
@@ -65,7 +68,7 @@ chineseInput.addEventListener("compositionend", () => {
 });
 
 chineseInput.addEventListener("input", () => {
-  if (composing) return; // ⛔ do nothing during pinyin typing
+  if (composing) return; // do nothing during pinyin typing
   chineseInput.value = chineseInput.value.replace(/[^\u4e00-\u9fff]/g, "");
 });
 
