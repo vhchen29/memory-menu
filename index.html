@@ -10,22 +10,35 @@
    <link rel="stylesheet" href="style.css">
 </head> 
 
+//intro div
+
+<div id="intro-overlay">
+  <div class="intro-content">
+    <h2>Welcome!</h2>
+    <p class="intro-overlay">Welcome to the ABC Menu! This menu reflects the experience of looking through a Chinese restaurant’s menu as someone with limited Chinese vocabulary but an extensive love for Chinese food. 
+</p>
+    <button id="enter-btn">Click here to take a look at the menu</button>
+  </div>
+</div>
+
 <!-- Top Bar -->
   <div class="topbar">
     <!-- <h1>Chinese Menu Hover Translate</h1> -->
+     <button id="printBtn">Print</button>
+
   </div>
 
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>ABC MENU</h2>
-    <h3> add a new 中/eng pair to your vocabulary </h3>
+    <h3> you've learned a new word! </h3>
 
    <!-- Add word form -->
     <input type="text" id="englishInput" placeholder="ENG">
     <input type="text" id="chineseInput" placeholder="中文">
-    <button id="addWordBtn">Add</button>
+    <button id="addWordBtn">Add +</button>
 
-    <h3>our current vocabulary</h3>
+    <h3>your vocabulary</h3>
     <ul id="wordList"></ul> <!-- ← will populate -->
   </div> 
 

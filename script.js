@@ -14,6 +14,12 @@ const addBtn = document.getElementById("addWordBtn");
 const wordList = document.getElementById("wordList");
 
 
+//enter button for intro overlay
+document.getElementById("enter-btn").addEventListener("click", () => {
+  document.getElementById("intro-overlay").classList.add("hidden");
+});
+
+
 function refreshWordList() {
   wordList.innerHTML = "";
 
@@ -48,6 +54,20 @@ addBtn.addEventListener("click", () => {
   if (!en || !cn) return; // ignore empty
 
   words.set(en, cn);
+
+  const enParts = en.split(/\s+/);
+
+  // Split Chinese into individual characters
+  const cnParts = [...cn]; // spreads Unicode correctly
+
+  // Only generate sub-mappings if lengths match
+  if (enParts.length === cnParts.length) {
+    for (let i = 0; i < enParts.length; i++) {
+      words.set(enParts[i], cnParts[i]);
+    }
+  }
+  
+  
 
   englishInput.value = "";
   chineseInput.value = "";
@@ -91,13 +111,15 @@ p.innerHTML = wordArray
     document.querySelectorAll(".bounce").forEach(span => {
     const original = span.textContent;
     const lower = original.toLowerCase().replace(/[.,!?;:]/g, ""); //cleaned
+    const next = span.textContent.charAt(original.length + 1);
 
     span.addEventListener("mouseenter", () => {
         if (words.has(lower)) {
         span.dataset.original = original;        // store original
         span.textContent = words.get(lower);     // set Chinese
         span.classList.add("chinese-active");    // add Chinese style
-        } else {
+        }        
+        else {
             span.dataset.original = original;
             const colors = ["yellow", "red", "green"];
             const icons = Array(original.length)
@@ -126,4 +148,49 @@ p.innerHTML = wordArray
         }, delay);
 
     });
+
+    
 });
+
+document.getElementById("printBtn").addEventListener("click", () => {
+ const spans = document.querySelectorAll("#text .bounce");
+  const originals = [];
+
+  spans.forEach((span, i) => {
+    const original = span.textContent;
+    originals[i] = original;
+
+    const cleaned = original.toLowerCase().replace(/[.,!?;:]/g, "");
+
+    if (words.has(cleaned)) {
+      span.textContent = words.get(cleaned);   // translate to Chinese
+      span.classList.add("chinese-active");    // optional styling
+    } else{
+      span.dataset.original = original;
+            const colors = ["yellow", "red", "green"];
+            const icons = Array(original.length)
+                .fill()
+                .map(() => {
+                    const pick = colors[Math.floor(Math.random() * colors.length)];
+                    return `<img src="assets/icons/fortune/${pick}.svg" class="icon">`;
+                })
+                .join("");
+            span.innerHTML = icons;
+            // span.innerHTML = `<img src="assets/icons/yellow.svg" class="icon">`;
+            span.classList.add("icon-active");
+    }
+  }); 
+
+  setTimeout(() => {
+    window.print();
+
+    spans.forEach((span, i) => {
+      span.textContent = originals[i];
+      span.classList.remove("chinese-active");
+    });
+  }, 50);
+});
+
+
+
+
